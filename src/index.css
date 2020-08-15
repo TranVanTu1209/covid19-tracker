@@ -1,13 +1,151 @@
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	overflow-x: hidden;
+}
+.app {
+	display: flex;
+}
+.app__left {
+	flex: 0.7;
+}
+.app__right {
+	padding: 1rem;
+	padding-left: 0;
+	flex: 0.3;
+	line-height: 1.8;
+}
+.app__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+}
+.app__stats {
+	padding: 0 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	grid-gap: 1rem;
+}
+.infoBox {
+	cursor: pointer;
+	transition: all 0.4s ease;
+}
+.infoBox.active {
+	background-color: #323232;
+	color: white;
+	transition: all 0.4s ease;
+}
+.infoBox.active.box__cases .MuiTypography-colorTextSecondary {
+	color: white;
+}
+.infoBox.active.box__cases h2 {
+	color: white;
+}
+.infoBox__cases {
+	color: #444;
+	margin: 0.5rem 0;
+}
+.box__deaths h2,
+.box__deaths span {
+	color: rgb(240, 25, 25) !important;
+}
+.box__recovered h2,
+.box__recovered span {
+	color: rgb(13, 168, 13);
+}
+.table {
+	height: 475px;
+	overflow-y: scroll;
+}
+.table table {
+	width: 99%;
+}
+.table table thead tr {
+	background-color: #282828 !important;
+	color: #f2f2f2;
+}
+.table table thead tr th {
+	padding: 0.8rem;
+}
+.table table td {
+	padding: 6px;
+}
+.table::-webkit-scrollbar {
+	width: 6px;
+}
+.table tr:nth-of-type(even) {
+	background-color: #f2f2f2;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.table::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+}
+
+.table::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
+}
+.app__right h3 {
+	margin-bottom: 0.6rem;
+}
+.app__right h3:last-child {
+	margin-top: 1rem;
+}
+.map {
+	padding: 1rem 2rem;
+	height: 500px;
+	border-radius: 5px;
+	margin-top: 1rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
+	box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+	background-color: white;
+}
+.map .leaflet-container {
+	height: 100%;
+}
+.info__container {
+	width: 150px;
+}
+.info__flag {
+	width: 100%;
+	height: 80px;
+	border-radius: 5px;
+	background-size: cover;
+	margin-bottom: 8px;
+}
+.info__name {
+	font-size: 20px;
+	color: #555;
+}
+.info__confirmed,
+.info__recovered,
+.info__deaths {
+	margin-bottom: 8px;
+	font-size: 15px;
+}
+@media (max-width: 768px) {
+	.app {
+		flex-direction: column;
+	}
+}
+@media (max-width: 550px) {
+	.app__header {
+		flex-direction: column;
+	}
+	.app__title {
+		margin-bottom: 1rem;
+	}
+	.app__right {
+		padding: 1rem 2rem;
+	}
 }
